@@ -1,7 +1,10 @@
 # 1141-微算機 - 期末專題
+
 demo 影片：https://youtu.be/i7nLtsewGFg
+
 專案下載 : [連結](https://drive.google.com/drive/folders/1qvzOwYBRiAMVn9JHdUn7_6FQry6XCAVM?usp=sharing)
-## 系統功能與原理說明) :
+
+## 系統功能與原理說明
 使用 PIC18F4520 微控制器，結合 KY-023P 類比搖桿、433MHz RF 無線模組以及兩種馬達，實現遠端操控四輪車。透過 ADC 取得方向與速度輸入，並將資料打包成封包，433MHz RF TX將數位訊號轉成高頻無線電波訊號發射到空中，再由車體端的433MHz RF RX接收。PIC18F4520接收指令後，以 PWM 控制直流馬達驅動後輪，並控制伺服馬達實現前輪轉向，完成前進、後退與左右轉動作。
 
 ## 系統使用環境及對象
@@ -32,10 +35,10 @@ demo 影片：https://youtu.be/i7nLtsewGFg
 
 
 ## 系統開發工具、材料及技術
-### 開發工具：
+### 開發工具
 - 使用MPLAB作為主要主要開發工具
 
-### 使用材料：
+### 使用材料
 - PIC18F4520 * 2，用於控制狀態機，分為發送端（控制器）與接收端（車體）
 - KY-023P * 1，用於ADC輸入，將收到的訊號送給PIC18處理
 - 433MHz RF TX + 433MHz RF RX，用於無線訊號傳輸
@@ -44,7 +47,7 @@ demo 影片：https://youtu.be/i7nLtsewGFg
 - LED燈 * 9，用於車輛狀態指示
 - 紙盒、竹筷、膠帶，用於製作車身主要材料
 
-### 使用技術：
+### 使用技術
 - Interrupt，發送端偵測ADC輸入，當輸入改變時觸發interrupt並發送訊號給接收端。接收端接收到發送端所發送的訊號時，使用interrupt改變馬達方向/轉速
 
 - Timer，控制訊號發送間隔及頻率，另外，由於PIC18F4520內建的PWM有
